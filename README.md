@@ -12,6 +12,8 @@ There are 5 cells available for input, which are then saved from each file in th
 
 ! _The table is saved in the same place where the script is located_
 
+![Alt text](EDESS_2.png)
+
 Two interface languages are available (Russian, English).
 To select from the merged cells, select the coordinates of the upper left cell.
 
