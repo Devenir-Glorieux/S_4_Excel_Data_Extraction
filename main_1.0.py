@@ -3,6 +3,7 @@ import openpyxl
 from tkinter import *
 from tkinter import filedialog as fd
 from tkinter.scrolledtext import ScrolledText
+from tkinter import messagebox
 
 window = Tk()
 window.geometry("640x450+650+150")
@@ -148,5 +149,36 @@ Button(up_frame, text='En', command=switch_language, bg=bg3, width=5). grid(row=
 #описание процесса
 st = ScrolledText(down_frame, width=85,  height=10, bd=1.5, font = 'Arial 10')
 st.grid(row=2, column=1, padx=5, pady=5, sticky='w'+'e'+'n'+'s')
+
+#меню-бар
+#-----------------------------------------------------------------------------
+def calculator():
+    os.system("C:/WINDOWS/System32/calc.exe")
+    return
+def show_about():
+    messagebox.showinfo(title="About", message="Version: 1.0\nAuthor: Stanislav Nikulin\nTelegram: @stan_nikulin\nDate: 2023\nLicense: MIT")
+
+menu_bar = Menu(window)
+
+file_menu = Menu(menu_bar, tearoff=0)
+# file_menu.add_command(label="Сохранить", command=save_file)
+# file_menu.add_separator()
+file_menu.add_command(label="Exit", command=window.quit)
+menu_bar.add_cascade(label="File", menu=file_menu)
+
+edit_menu = Menu(menu_bar, tearoff=0)
+# edit_menu.add_command(label="Копировать")
+edit_menu.add_command(label="Calculator", command=calculator)
+
+menu_bar.add_cascade(label="Options", menu=edit_menu)
+
+help_menu = Menu(menu_bar, tearoff=0)
+help_menu.add_command(label="About...", command=show_about)
+menu_bar.add_cascade(label="Help", menu=help_menu)
+
+window.config(menu=menu_bar)
+
+#-----------------------------------------------------------------------------
+
 
 window.mainloop()
